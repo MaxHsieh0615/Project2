@@ -2,14 +2,14 @@
 {
   "development": {
     "username": "root",
-    "password": process.env.password,
+    "password": "password",
     "database": "exampledb",
     "host": "localhost",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
-    "password": process.env.password,
+    "password": "password",
     "database": "testdb",
     "host": "localhost",
     "dialect": "mysql",
