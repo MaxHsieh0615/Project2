@@ -1,33 +1,41 @@
-DROP DATABASE IF EXISTS jobs_piggieDB;
+DROP DATABASE IF EXISTS Piggy_BusinessDB;
 
-CREATE DATABASE jobs_piggieDB;
+CREATE DATABASE Piggy_BusinessDB;
 
-USE jobs_piggieDB;
+USE Piggy_BusinessDB;
 
-CREATE TABLE job_name (
- id INT NOT NULL AUTO_INCREMENT,
- name VARCHAR(45) NOT NULL,
- description VARCHAR(255) NULL,
- PRIMARY KEY (id)
-);
+Table job {
+ id INT PK
+ name VARCHAR
+ description VARCHAR
+ adult_user_id INT
+ child_id INT
+ earning_amount DECIMAL
+ status VARCHAR
+ piggy_bank_id INT
+}
 
-CREATE TABLE piggy_bank (
- id INT NOT NULL AUTO_INCREMENT,
- earnings DECIMAL(10,2) NOT NULL,
- description VARCHAR(255) NULL,
- PRIMARY KEY (id)
-);
+Table piggy_bank {
+ id INT PK
+ earnings DECIMAL
+ description VARCHAR
+ child_id INT
+}
 
-CREATE TABLE child_user (
- id INT NOT NULL AUTO_INCREMENT,
- user_name VARCHAR(20) NOT NULL,
- user_password VARCHAR(20) NOT NULL,
- PRIMARY KEY (id)
-);
+Table adult_user {
+ id INT PK
+ name VARCHAR
+ password VARCHAR
+}
 
-CREATE TABLE adult_user (
- id INT NOT NULL AUTO_INCREMENT,
- user_name VARCHAR(20) NOT NULL,
- user_password VARCHAR(20) NOT NULL,
- PRIMARY KEY (id)
-);
+Table child {
+ id INT PK
+ name VARCHAR
+ adult_user_id INT
+}
+
+Ref: adult_user.id > child.adult_user_id
+Ref: adult_user.id > job.adult_user_id
+Ref: child.id > job.child_id
+Ref: job.piggy_bank_id > piggy_bank.id
+Ref: piggy_bank.child_id > child.id (edited) 
