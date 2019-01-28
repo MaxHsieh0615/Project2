@@ -1,0 +1,37 @@
+<h2>Add a Child</h2>
+<br>
+<h3>Enter Details Below to Add a Child to the Board</h3>
+<div class="container">
+    <div class="section">
+        <div class="row">
+            <div class="col s12 center">
+                <h3><i class="mdi-content-send brown-text"></i></h3>
+                <div class="row">
+                    <form class="col s12" action="/child/add" method="POST">
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="text" type="text" class="validate">
+                                <label for="text">Job Title</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="text" type="text" class="validate">
+                                <label for="text">Job Description</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="text" type="text" class="validate">
+                                <label for="text">Job Value</label>
+                            </div>
+                        </div>
+                        <div class="row center">
+                            <a href="./viewJobs.handlebars" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Add Job</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

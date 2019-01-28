@@ -4,7 +4,7 @@ CREATE DATABASE Piggy_BusinessDB;
 
 USE Piggy_BusinessDB;
 
-Create TABLE tbl_job (
+Create TABLE tbl_jobs (
  id INT auto_increment
  name VARCHAR
  description VARCHAR

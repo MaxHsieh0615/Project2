@@ -7,27 +7,56 @@
             <div class="col s12 center">
                 <h3><i class="mdi-content-send brown-text"></i></h3>
                 <div class="row">
-                    <form class="col s12">
+                    {{#each errors}}
+                    <div class="error">
+                        <p>{{text}}</p>
+                    </div>
+                    {{/each}}
+                    <form class="col s12" action="/jobs/add" method="POST">
                         <div class="row">
                             <div class="input-field col s12">
-                                <input id="text" type="text" class="validate">
-                                <label for="text">Job Title</label>
+                                <input id="name" type="text" class="validate" value={{name}}>
+                                <label for="name">Job Title</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field col s12">
-                                <input id="text" type="text" class="validate">
-                                <label for="text">Job Description</label>
+                                <input id="adult_user_id" type="text" class="validate" value={{adult_user_id}}>
+                                <label for="adult_user_id">Parents ID</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field col s12">
-                                <input id="text" type="text" class="validate">
-                                <label for="text">Job Value</label>
+                                <input id="child_id" type="text" class="validate" value={{child_id}}>
+                                <label for="child_id">Child ID</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="earning_amount" type="text" class="validate" value={{earning_amount}}>
+                                <label for="earning_amount">Job Value</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="status" type="text" class="validate" value={{status}}>
+                                <label for="status">Job Status</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="piggy_bank_id" type="text" class="validate" value={{piggy_bank_id}}>
+                                <label for="piggy_bank_id">Piggy Bank ID</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <textarea id="description" type="text" class="validate">{{description}}</textarea>
+                                <label for="description">Job Description</label>
                             </div>
                         </div>
                         <div class="row center">
-                            <a href="./viewJobs.handlebars" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Add Job</a>
+                            <input type="submit" value="Add the Job" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">
                         </div>
                     </form>
                 </div>

@@ -2,11 +2,11 @@ require("dotenv").config();
 var express = require("express");
 var exphbs = require("express-handlebars");
 var path = require('path');
+var bodyParser = require('body-parser');
 var db = require("./config/connection");
 var apiRoutes = require("./routes/apiRoutes");
 
 var app = express();
-app.get('/', (req, res) => res.send('hello'));
 var PORT = process.env.PORT || 8080;
 
 // Middleware
@@ -23,22 +23,22 @@ app.engine(
 );
 app.set('view engine', 'handlebars');
 
+//Body Parser
+app.use(bodyParser.urlencoded({ extended: false}));
+
 //Set static folder
 app.use(express.static(path.join(__dirname, '/public/')));
 
-// Routes
+
+//Main content Routes
 app.use('/', apiRoutes);
+
+//Splash Routes
+app.use('/splash', (req, res) => res.render('index', {layout: 'splash'}));
+
 //app.use('/piggybank', require("./routes/apiRoutes"))
 //require("./routes/htmlRoutes")(app);
 
-// var syncOptions = { force: false };
-
-// If running a test, set syncOptions.force to true
-// clearing the `testdb`
-// if (process.env.NODE_ENV === "test") {
-//   syncOptions.force = true;
-// }
-// Test db.
 db.authenticate()
   .then(() => console.log('Database connected...'))
   .catch(err => console.log('Error: ' + err))

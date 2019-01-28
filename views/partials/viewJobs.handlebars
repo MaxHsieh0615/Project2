@@ -9,10 +9,21 @@
 </ul>
 <br>
 <div class="collection">
-    <a href="#!" class="collection-item">Job 1</a>
-    <a href="#!" class="collection-item">Job 2</a>
+    {{!-- <a href="#!" class="collection-item">Job 1</a>
+    <a href="#!" class="collection-item">Job 2</a> --}}
+
+    {{#each jobs}}
+        <div class="jobs">
+            <h3>{{title}}</h3>
+            <p>{{description}}</p>
+            <p>{{earning_amount}}</p>>
+        </div>
+    {{else}}
+        <p>No Jobs Available</p>
+    
+    {{/each}}
 </div>
 <br>
 <div class="collection">
-    <a href="#!" class="collection-item">Add a Job</a>
+    <a href="/addjobs" class="collection-item">Add a Job</a>
 </div>
